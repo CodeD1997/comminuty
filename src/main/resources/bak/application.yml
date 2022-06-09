@@ -1,0 +1,45 @@
+server:
+  # 配置服务器端口
+  port: 8080
+  # 配置服务器访问路径
+  servlet:
+    context-path: /community
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  #指定映射的实体类包名
+  type-aliases-package: com.hust.community.entity
+  configuration:
+    #启动主键自动增长(id值)
+    use-generated-keys:
+    #让表中下划线命名的列名和实体类中驼峰命名的属性名进行匹配
+    map-underscore-to-camel-case: true
+
+
+spring:
+  # 关闭thymeleaf缓存
+  thymeleaf:
+    cache: false
+  # 使用druid配置数据源
+  datasource:
+    druid:
+      username: root
+      password: 199781
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/community?serverTimeZone=Aisa/Shanghai
+
+      #Spring Boot 默认是不注入这些属性值的，需要自己绑定
+      #druid 数据源专有配置
+      # 初始化大小，最小，最大
+      initialSize: 5
+      minIdle: 5
+      maxActive: 15
+      # 配置获取连接等待超时的时间
+      maxWait: 30000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 600000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+
+
+
