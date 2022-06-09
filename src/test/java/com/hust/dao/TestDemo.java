@@ -7,6 +7,7 @@ public class TestDemo {
 
     @Test
     public void test(){
-        System.out.println("gitTest");
+        System.out.println("gitTest1");
+
     }
 }
